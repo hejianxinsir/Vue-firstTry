@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Vue-demo1</title>
+
+</head>
+<body>
+	<!-- 以下 demo 及信息全来自官方文档-->
+
+	<!-- 写法1 -->
+	<div id="app">
+		{{ message }}
+	</div>
+
+	<!-- 写法2 -->
+	<div id="app2">
+		<span v-bind:title="message">
+			鼠标放这儿，看看你进入这个页面的时间
+		</span>
+	</div>
+
+	<div id="app3">
+		<span v-bind:title="xixi">
+			再放鼠标到这儿试试？
+		</span>
+	</div>
+
+	<!-- v-bind 是个 derecitve ，以 v- 开头，是 Vue 特别提供的。-->
+	<div id="app4">
+		<span v-bind:title="lala">
+			同上，试第三次，给我快点儿！
+		</span>
+	</div>
+
+	<!-- 写法3-->
+	<div id="app5">
+		<span v-if="janson">
+			只有当 janson 的值为 true 的时候，你才能看到这句话。
+			directive 是 v-if ，很明显是一个条件判断，值为 true 则可见，为 false
+			则不可见。
+		</span>	
+	</div>
+
+	<!-- 
+		接下来介绍 v-for directive：展示来自一个数组的列表。v-for directive
+		can be used for displaying a list of items using the data from an 
+		Array
+	-->
+
+	<div class="janson">
+		<ul>
+			<li v-for="xin in todos">
+				{{ xin.content }}
+			</li>
+		</ul>
+	</div>
+
+	<!-- 
+		v-on directive: to attach event listeners that invoke
+		methods on our Vue instances.
+	-->
+	<div id="app7">
+		<p>{{ message }}</p>
+		<button v-on:click="reverseMessage">revers message</button>
+	</div>
+
+	<div id="app8">
+		<p>{{ message }}</p>
+		<button v-on:click="reverseMessage">Reverse Message</button>
+	</div>
+
+	<!--
+		Vue also provides the v-model directive that makes two-way binding between form input and app state a breeze:
+	-->
+
+	<div id="app9">
+		<p>{{ message }}</p>
+		<input v-model="message">
+	</div>
+
+	<!--
+		Todo 列表是这么写的
+	-->
+	<div id="app10">
+		<ol>
+			<todo-item
+				v-for="item in groceryList"
+				v-bind:todo="item"
+				v-bind:key="item.id"
+			></todo-item>
+		</ol>
+	</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<script src="./main.js"></script>
+	<script src="./vue.js"></script>
+</body>
+</html>
