@@ -95,3 +95,75 @@ var app10 = new Vue({
 		]
 	}
 })
+
+// Object.freeze(obj) 的用法
+
+var obj = {
+	foo: 'hello'
+}
+
+Object.freeze(obj)	// 加了这一句，点击按钮就不能更新了，因为 freeze 了
+
+var app11 = new Vue({
+	el: '#app11',
+	data: obj
+})
+
+// In addition to data properties, Vue instances expose a number of useful instance properties and methods. These are prefixed with $ to differentiate them from user-defined properties. For example:
+
+//var data1 = {a: 1}
+//var vm = new Vue({
+//	el: '#example',
+//	data: data
+//})
+//
+//vm.$data === data	// true
+//vm.$el === document.getElementById('example')	// true
+//
+//// $watch is an instance method
+//vm.$watch('a', function(newValue, oldValue){
+//	// This callback will be called when `vm.a` changes
+//})
+
+// 自己写一个demo
+!(function(){
+	var obj2 = {
+		message: 'djdjddj'
+	}
+	
+	var vm2 = new Vue({
+		el: '#app12',
+		data: obj2
+	})
+	
+	vm2.$data === data
+	vm2.$el === document.querySelector('#app12')
+	
+	vm2.$watch('message', function(newValue, oldValue){
+		console.log('watched')
+	})
+
+})()
+
+// created lifeCircle hook:the created hook can be used to run code after an instance is created:
+
+new Vue({
+	data: {
+		a: 1
+	},
+	created: function(){
+		// `this` points to the vm instance
+		console.log('a is: ' + this.a)
+	}
+})
+
+
+
+
+
+
+
+
+
+
+
